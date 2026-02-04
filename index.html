@@ -2,17 +2,140 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>proposal</title>
-</head>
-<body>
-    <script>
-        let userSays = prompt("Will you be my valentine?");
-        if (userSays == "yes") {
-            console.log("Yahoo! I Love You my darling");
-        } else if (userSays == "no") {
-            console.log("i will wait till you say yes");
+    <title>My Valentine 💖</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+            font-family: 'Segoe UI', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
-    </script>
+
+        .card {
+            background: white;
+            padding: 40px;
+            width: 350px;
+            text-align: center;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            animation: fadeIn 1.5s ease;
+        }
+
+        h1 {
+            color: #ff4b6e;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #555;
+            font-size: 18px;
+        }
+
+        button {
+            margin-top: 25px;
+            padding: 12px 25px;
+            font-size: 16px;
+            border: none;
+            background: #ff4b6e;
+            color: white;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #e63950;
+            transform: scale(1.05);
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #ff4b6e;
+            min-height: 30px;
+        }
+
+        .heart {
+            font-size: 50px;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <div class="heart">❤️</div>
+
+    <h1>Will You Be My Valentine?</h1>
+
+    <p>Click the button and answer honestly 😊</p>
+
+    <button onclick="askValentine()">Click Here 💌</button>
+
+    <div id="result"></div>
+
+</div>
+
+
+<script>
+
+function askValentine() {
+
+    let userSays = prompt("Will you be my Valentine? (yes / no)");
+
+    let result = document.getElementById("result");
+
+    if (userSays === null) {
+        result.innerHTML = "You didn't answer 😅";
+        return;
+    }
+
+    userSays = userSays.toLowerCase().trim();
+
+    if (userSays === "yes") {
+
+        result.innerHTML = "💖 Yahoo! I Love You My Darling 💖";
+        alert("I'm so happy! 😍");
+
+    } 
+    else if (userSays === "no") {
+
+        result.innerHTML = "🥺 I will wait till you say yes...";
+        alert("I will keep trying 💕");
+
+    } 
+    else {
+
+        result.innerHTML = "Please type only 'yes' or 'no' 😊";
+    }
+}
+
+</script>
+
 </body>
 </html>
